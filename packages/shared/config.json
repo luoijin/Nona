@@ -1,0 +1,11 @@
+{
+  "app": {
+    "name": "Nona",
+    "slug": "nona",
+    "version": "0.1.0",
+    "platform": "android",
+    "androidPackage": "com.nona.app",
+    "androidMinSdkVersion": 26,
+    "androidAdaptiveIconBackground": "#007DFF"
+  }
+}

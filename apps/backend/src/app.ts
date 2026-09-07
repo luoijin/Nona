@@ -1,0 +1,26 @@
+import cors from 'cors';
+import express from 'express';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import { env } from './config/env';
+import { securityConfig } from './config/security';
+import { requireAuth } from './middleware/auth';
+import { errorHandler, notFound } from './middleware/errors';
+import { healthRouter } from './routes/health';
+import { profileRouter } from './routes/profile';
+import { transactionRouter } from './routes/transactions';
+import { devAuthRouter } from './routes/devAuth';
+import { NONA_CONFIG } from '@nona/shared';
+
+export const app = express();
+app.disable('x-powered-by');
+app.use(helmet());
+app.use(cors({ origin: securityConfig.cors.origins }));
+app.use(rateLimit(securityConfig.rateLimit));
+app.use(express.json({ limit: NONA_CONFIG.security.requestBodyLimit }));
+app.use(`${env.API_PREFIX}${NONA_CONFIG.api.routes.health}`, healthRouter);
+app.use(`${env.API_PREFIX}/dev-auth`, devAuthRouter);
+app.use(`${env.API_PREFIX}${NONA_CONFIG.api.routes.profile}`, requireAuth, profileRouter);
+app.use(`${env.API_PREFIX}${NONA_CONFIG.api.routes.transactions}`, requireAuth, transactionRouter);
+app.use(notFound);
+app.use(errorHandler);

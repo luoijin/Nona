@@ -1,0 +1,17 @@
+{
+  "name": "nona",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "mobile:start": "npm --workspace apps/mobile start",
+    "mobile:typecheck": "npm --workspace apps/mobile run typecheck",
+    "backend:dev": "npm --workspace apps/backend run dev",
+    "backend:typecheck": "npm --workspace apps/backend typecheck",
+    "backend:prisma:generate": "npm --workspace apps/backend prisma:generate",
+    "backend:prisma:migrate": "npm --workspace apps/backend prisma:migrate"
+  }
+}

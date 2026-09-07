@@ -1,0 +1,29 @@
+{
+  "name": "@nona/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nona/shared": "0.1.0",
+    "@supabase/supabase-js": "^2.57.0",
+    "expo": "~57.0.19",
+    "expo-linking": "~57.0.9",
+    "expo-secure-store": "~57.0.3",
+    "expo-speech": "~57.0.2",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-url-polyfill": "^4.0.0",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/react": "~19.2.4",
+    "typescript": "~6.0.3"
+  }
+}
